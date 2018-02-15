@@ -4,8 +4,8 @@
     private $errorArray;
 
     public function __construct() {
-      $this->$errorArray = array();
-    }
+			$this->errorArray = array();
+		}
 
     public function register($un, $fn, $ln, $em, $em2, $pw, $pw2) {
       $this->validateUsername($un);
@@ -28,13 +28,34 @@
 
     private function validateFirstName($fn) {
 
+      if(strlen($fn) > 25 || strlen($fn) < 2) {
+        array_push($this->$errorArray, "Your first name must be between 2 and 25 characters");
+        return;
+      }
+
     }
 
     private function validateLastName($ln) {
 
+      if(strlen($ln) > 25 || strlen($ln) < 2) {
+        array_push($this->$errorArray, "Your last name must be between 2 and 25 characters");
+        return;
+      }
+
     }
 
     private function validateEmails($em, $em2) {
+      if($em != $em2) {
+        array_push($this->$errorArray, "Your e-mail addresses are not matching");
+        return;
+      }
+
+      if(!filter_var($em, FILTER_VALIDATE_EMAIL)) {
+        array_push($this->$errorArray, "E-mail is invalid");
+        return;
+      }
+
+      // TO DO: Check that username hasn't already been used
 
     }
 
