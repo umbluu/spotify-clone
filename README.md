@@ -1,3 +1,3 @@
 # spotify-clone
 
-# Spotify clone course
+# Spotify clone course from Udemy
