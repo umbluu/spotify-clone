@@ -1,4 +1,8 @@
 <?php
+  include("./includes/classes/Account.php");
+
+  $account = new Account();
+
   include("includes/handlers/register-handler.php"); //Takes the specified file and places its contents to the HTML page.
   include("includes/handlers/login-handler.php"); //Takes the specified file and places its contents to the HTML page.
  ?>
